@@ -1,0 +1,15 @@
+{% extends 'core/base.html' %} {% block content %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-form-label mb-1">fecha</label> <input  name="date" type="date" required>
+                <label class="col-form-label mb-1">Hora</label> <input  name="time" type="time" required>
+                <label class="col-form-label mb-1">Latitud</label> <input  name="lat" type="number" required>
+                <label class="col-form-label mb-1">Longitud</label> <input  name="lng" type="number" required>
+               <button type="submit" class="btn btn-primary mt-">Buscar</button> 
+            </div>
+        </form>
+<br>
+{{ data }}
+
+{% endblock %}

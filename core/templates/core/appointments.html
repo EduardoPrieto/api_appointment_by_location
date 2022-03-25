@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %} {% block content %}
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-form-label mb-1">fecha</label> <input  name="date" type="date" required>
+                <label for="name" class="col-form-label mb-1">Conductor</label> 
+                <select name="driver">
+                    <option value="">Elegir Conductor</option>
+                    {% for driver in data %}
+                        <option value="{{driver.id}}">{{driver.id}}</option>                
+                    {% endfor %}
+                </select>
+               <button type="submit" class="btn btn-primary mt-">Buscar</button> 
+            </div>
+        </form>
+<br>
+{{ appointments }}
+
+{% endblock %}

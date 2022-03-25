@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %} {% block content %}
+<div class="card mt-5" style="width: 26rem;">
+
+    <div class="card-body ">
+
+        <h6 class="mt-4" style="color: {{color}};">{{message}}</h6>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name" class="col-sm-4 col-form-label mb-1">Conductor</label> 
+                <select name="driver" class="form-control">
+                    {% for driver in data %}
+                        <option value="{{driver.id}}">{{driver.id}}</option>                
+                    {% endfor %}
+                </select>
+                <label class="col-form-label mb-1">fecha</label> <input class="form-control"  name="date" type="date" required>
+                <label class="col-form-label mb-1">Hora</label> <input class="form-control"  name="time" type="time" required>
+                <label class="col-form-label mb-1">Latitud de origen</label> <input class="form-control"  name="lat_origin" type="number" required>
+                <label class="col-form-label mb-1">Longitud de origen</label> <input class="form-control"  name="lng_origin" type="number" required>
+                <label class="col-form-label mb-1">Latitud de destino</label> <input class="form-control"  name="lat_destination" type="number" required>
+                <label class="col-form-label mb-1">Longitud de destino</label> <input class="form-control"  name="lng_destination" type="number" required>
+                <label class="col-form-label mb-1">Descripción</label><textarea name="description" class="form-control" rows="10" cols="50">Write something here</textarea>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary mt-2">Guardar</button>
+
+        </form>
+        
+    </div>
+</div>
+
+
+
+
+{% endblock %}
